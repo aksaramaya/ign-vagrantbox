@@ -1,0 +1,89 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Ign-vagrantbox by anak10thn</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Ign-vagrantbox</h1>
+        <p></p>
+
+        <p class="view"><a href="https://github.com/anak10thn/ign-vagrantbox">View the Project on GitHub <small>anak10thn/ign-vagrantbox</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/anak10thn/ign-vagrantbox/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/anak10thn/ign-vagrantbox/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/anak10thn/ign-vagrantbox">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>
+<a id="igos-nusantara-vagrant-box" class="anchor" href="#igos-nusantara-vagrant-box" aria-hidden="true"><span class="octicon octicon-link"></span></a>IGOS Nusantara Vagrant Box</h1>
+
+<ul>
+<li>Install GCC &amp; kernel devel</li>
+</ul>
+
+<pre><code># yum install gcc kernel-devel
+</code></pre>
+
+<ul>
+<li>install Virtualbox Guest</li>
+<li>create vagrant user</li>
+</ul>
+
+<pre><code># useradd -m -d /home/vagrant vagrant
+# echo "vagrant" | passwd "vagrant" --stdin
+</code></pre>
+
+<ul>
+<li>add authorized_keys to /vagrant/.ssh</li>
+</ul>
+
+<pre><code>ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEA6NF8iallvQVp22WDkTkyrtvp9eWW6A8YVr+kz4TjGYe7gHzIw+niNltGEFHzD8+v1I2YJ6oXevct1YeS0o9HZyN1Q9qgCgzUFtdOKLv6IedplqoPkcmF0aYet2PkEDo3MlTBckFXPITAMzF8dJSIFo9D8HfdOV0IAdx4O7PtixWKn5y2hMNG0zQPyUecp4pzC6kivAIhyfHilFR61RGL+GPXQ2MWZWFYbAGjyiYJnAmCP3NOTd0jMZEnDkbUvxhMmBYSdETk1rRgm+R4LOzFUGaHqHDLKLX+FIPKcF96hrucXzcWyLbIbEgE98OHlnVYCzRdK8jlqm8tehUc9c9WhQ== vagrant insecure public key
+</code></pre>
+
+<ul>
+<li>edit /etc/sudoers</li>
+</ul>
+
+<pre><code>vagrant ALL=(ALL) NOPASSWD: ALL
+#Defaults    requiretty
+</code></pre>
+
+<ul>
+<li>Creating a base box</li>
+</ul>
+
+<pre><code>vagrant package --base vagrantboxbase --output ign-2.0-server.box
+</code></pre>
+
+<ul>
+<li>Testing the box</li>
+</ul>
+
+<pre><code>$ vagrant box add my-box /path/to/the/ign-2.0-server.box
+$ vagrant init my-box
+$ vagrant up
+</code></pre>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/anak10thn">anak10thn</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
