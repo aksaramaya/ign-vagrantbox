@@ -23,6 +23,11 @@ vagrant ALL=(ALL) NOPASSWD: ALL
 #Defaults    requiretty
 ```
 
+* edit /etc/ssh/sshd_config
+```
+AuthorizedKeysFile %h/.ssh/authorized_keys
+```
+
 * Creating a base box
 ```
 vagrant package --base vagrantboxbase --output ign-2.0-server.box
